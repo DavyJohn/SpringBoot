@@ -27,11 +27,14 @@
 		                    	alt="profile_pic" width="50px" height="50px"></a>
 		                </div>
 		                <div class="media-body">
-<!--							post.isEnd=0 ? "":"设置一张已完成图片"-->
+
                             <div class="media-heading">
                                 <a class="post-title" th:href="@{/post/{postId}(postId=${post.id})}" th:text="${post.title}">title</a>
 
-								<span class="isend" ><font color="red" th:text="${'显示或是隐藏是否完成'+post.isEnd}"/></span>
+								<span class="isEnd"  >
+<!--								post数据里面没有isEnd-->
+								<font  th:text="${post.isEnd == 0} ? '' : '已完成'" color="red"/>
+								</span>
                             </div>
                             <a class="post-tag"
                                     th:href="@{/category/{categoryName}(categoryName=${post.category.name})}"
