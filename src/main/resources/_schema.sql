@@ -36,6 +36,7 @@ CREATE TABLE `T_POST` (
   `category_id`        BIGINT,
   `comment_count`      INT DEFAULT 0,
   `hit_count`          BIGINT,
+  `isEnd`              INT DEFAULT 0,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`category_id`)  REFERENCES T_CATEGORY(`id`),
   FOREIGN KEY (`user_id`)      REFERENCES T_USER(`id`)

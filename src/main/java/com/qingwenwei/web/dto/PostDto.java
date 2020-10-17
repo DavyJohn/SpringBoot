@@ -7,6 +7,16 @@ public class PostDto {
 	private String body;
 	private String category;
 
+	private Integer isEnd;
+
+	public Integer getIsEnd() {
+		return isEnd;
+	}
+
+	public void setIsEnd(Integer isEnd) {
+		this.isEnd = isEnd;
+	}
+
 	public Long getPostId() {
 		return postId;
 	}

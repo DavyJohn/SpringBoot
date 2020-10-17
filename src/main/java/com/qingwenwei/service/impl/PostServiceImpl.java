@@ -118,6 +118,7 @@ public class PostServiceImpl implements PostService {
 		attributes.put("title", post.getTitle());
 		attributes.put("comments", comments);
 		attributes.put("commentDto", new CommentDto());
+		attributes.put("isEnd",post.getIsEnd());
 		return attributes;
 	}
 
@@ -137,6 +138,8 @@ public class PostServiceImpl implements PostService {
 		post.setCategory(category);
 		post.setDateCreated(new Timestamp(System.currentTimeMillis()));
 		post.setUser(user);
+		//设置默认值为0
+		post.setIsEnd(0);
 		return post;
 	}
 

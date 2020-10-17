@@ -98,7 +98,7 @@ public class Post implements Serializable {
 	@Override
 	public String toString() {
 		return "Post [id=" + id + ", title=" + title + ", body=" + body + ", dateCreated=" + dateCreated + ", category="
-				+ category + ", user=" + user + ", commentCount=" + commentCount + ", hitCount=" + hitCount + "]";
+				+ category + ", user=" + user + ", commentCount=" + commentCount + ", hitCount=" + hitCount + ",isEnd=" + isEnd+"]";
 	}
 
 	public String numDaysAgo() {

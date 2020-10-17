@@ -22,7 +22,7 @@
     </resultMap>
     
     <insert id="save">
-        INSERT INTO `T_POST` (title, body, date_created, user_id, category_id) VALUES (#{title}, #{body}, #{dateCreated}, #{user.id}, #{category.id})
+        INSERT INTO `T_POST` (title, body, date_created, user_id, category_id,isEnd) VALUES (#{title}, #{body}, #{dateCreated}, #{user.id}, #{category.id},#{isEnd})
     </insert>
     
     <select id="findById" parameterType="Long" resultMap="PostResultMap">
