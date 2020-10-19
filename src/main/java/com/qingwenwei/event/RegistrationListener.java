@@ -35,13 +35,7 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
 
 	@Autowired
 	private UserMapper userMapper;
-
-
 	
-
-
-
-
 	// root URL of service
 	@Value("${service.url}")
 	private String serviceUrl;
