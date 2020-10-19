@@ -6,6 +6,15 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
+import java.util.concurrent.ExecutionException;
+
 @Service("emailService")
 public class EmailService {
 
@@ -15,7 +24,13 @@ public class EmailService {
 	// asynchronous function
 	// requires EnableAsync annotation in application class - main method
 	@Async
-	public void sendEmail(SimpleMailMessage email) {
-		mailSender.send(email);
+	public void sendEmail(MimeMessage email) {
+		try {
+			mailSender.send(email);
+			System.out.println("简单邮件发送成功！");
+		} catch (Exception e) {
+			System.out.println("发送简单邮件时发生异常！"+e);
+		}
+
 	}
 }

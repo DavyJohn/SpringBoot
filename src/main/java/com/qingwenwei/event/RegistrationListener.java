@@ -2,26 +2,33 @@ package com.qingwenwei.event;
 
 import java.util.UUID;
 
+import com.qingwenwei.util.EmailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationListener;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
 import com.qingwenwei.persistence.dao.UserMapper;
 import com.qingwenwei.persistence.dao.VerificationTokenMapper;
 import com.qingwenwei.persistence.model.User;
 import com.qingwenwei.persistence.model.VerificationToken;
-import com.qingwenwei.util.EmailService;
+
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 @Component
 public class RegistrationListener implements ApplicationListener<OnRegistrationCompleteEvent> {
 
-	private static final String VERIFICATION_EMAIL_FROM_ADDR = "springbootforum@163.com";
+	private static final String VERIFICATION_EMAIL_FROM_ADDR = "zzh390921606@163.com";
 
-	private static final String VERIFICATION_EMAIL_SUBJECT = "用户注册确认";
+	private static final String EMAIL_NAME = "工单系统";
+
+	private static final String VERIFICATION_EMAIL_SUBJECT = "用户激活";
 
 	private static final String CONFIRM_ENDPOINT = "registration-confirm";
 
@@ -32,6 +39,9 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
 
 	@Autowired
 	private EmailService emailService;
+
+	@Autowired
+	private JavaMailSender jms;
 
 	@Autowired
 	private UserMapper userMapper;
@@ -58,17 +68,37 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
 		this.verificationTokenMapper.save(verificationToken);
 
 		// construct verification email
-		SimpleMailMessage email = new SimpleMailMessage();
+		//SimpleMailMessage email = new SimpleMailMessage();
 
 		// confirmation link in email
 		String confirmationLink = serviceUrl + "/user/" + CONFIRM_ENDPOINT + "?token=" + token;
-		System.out.println("confirmation link >> " + confirmationLink);
-		email.setFrom(VERIFICATION_EMAIL_FROM_ADDR);
-		email.setSubject(VERIFICATION_EMAIL_SUBJECT);
-		email.setText(confirmationLink);
-		email.setTo(user.getEmail());
+		//System.out.println("confirmation link >> " + confirmationLink);
+		//email.setFrom(VERIFICATION_EMAIL_FROM_ADDR);
+		//email.setSubject(VERIFICATION_EMAIL_SUBJECT);
 
-		// send email asynchronously
-		// this.emailService.sendEmail(email);
+		String emailMsg = "感谢您注册，点击"
+				 + "<a href='"+ confirmationLink + "'>&nbsp;激活&nbsp;</a>"+"后使用。"
+				+ "为保障您的账户安全，请在24小时内完成激活操作";
+		//email.setText(emailMsg);
+		//email.setTo(user.getEmail());
+
+
+		MimeMessage mimeMessage = jms.createMimeMessage();
+		try {
+			MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
+			messageHelper.setFrom(new InternetAddress(VERIFICATION_EMAIL_FROM_ADDR, "Company XYZ"));
+			messageHelper.setTo(user.getEmail());
+			messageHelper.setSubject(VERIFICATION_EMAIL_SUBJECT);
+			String html = emailMsg;
+			messageHelper.setText(html, true);
+			this.emailService.sendEmail(mimeMessage);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+//		 send email asynchronously
+
 	}
+
+
 }
