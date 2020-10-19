@@ -139,5 +139,25 @@ li.profile-list.last-border:first-child {
 	font-size:16px;
 }
 
+/* 已完成状态 */
+.complete {
+    color: grey;
+    /* background-color: #c9e9ff; */
+    background-image: url(./complete.png);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 59px;
+}
+.complete .media .media-body a {
+    color: #cac7c8;
+}
 
+.complete .media .media-body span {
+    color: #cac7c8;
+}
 
+.complete .media a img {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    /* 针对 IE8 以及更早的版本 */
+}
