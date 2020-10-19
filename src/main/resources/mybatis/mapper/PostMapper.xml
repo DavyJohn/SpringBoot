@@ -9,6 +9,7 @@
         <result property="dateCreated" column="post_date_created"/>
         <result property="commentCount" column="post_comment_count"/>
         <result property="hitCount" column="post_hit_count"/>
+        <result property="isEnd" column="isEnd"/>
         <association property="user" column="post_user_id" javaType="com.qingwenwei.persistence.model.User">
             <id property="id" column="user_id"/>
             <result property="username" column="user_username"/>
@@ -54,6 +55,7 @@
             p.date_created as post_date_created,
             p.comment_count as post_comment_count,
             p.hit_count as post_hit_count,
+            p.isEnd,
 	        u.id as user_id,
 	        u.username as user_username,
 	        u.avatar_location as user_avatar_location,

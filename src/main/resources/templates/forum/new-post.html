@@ -24,6 +24,18 @@
 	                                    <textarea th:field="*{body}" class="form-control" rows="10" style="resize: vertical" placeholder="正文"></textarea>
 	                                    <span class="label label-warning" th:if="${#fields.hasErrors('body')}" th:errors="*{body}">Body Error</span>
 	                                </div>
+<!--									图片上传开始-->
+									<div class="row form-group">
+										<div class="input-group">
+											<label class="input-group-btn">
+											    <span class="btn btn-primary">
+											        上传图片<input name="avatar" type="file" style="display: none;" accept="image/png,image/gif,image/jpeg,image/jpg">
+											        </span>
+											</label>
+											<input type="text" class="form-control" readonly>
+										</div>
+									</div>
+<!--									图片上传结束-->
 	                                <div class="row form-group">
 	                                    <span class="pull-left" th:hidden="${isQuickNewPost} ? 'false' : 'true'">
 		                                    <select th:field="*{category}" class="selectpicker" data-live-search="true">
@@ -33,6 +45,7 @@
 		                                                th:text="${category.displayName}">category name</option>
 		                                    </select>
 	                                    </span>
+
 		                                <span class="pull-right">
 		                                    <input hidden="true" type="text" th:field="*{category}"/>
 			                                <input class="btn btn-primary text-right" type="submit" value="发表" />

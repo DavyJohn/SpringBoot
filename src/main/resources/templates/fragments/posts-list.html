@@ -31,9 +31,9 @@
                             <div class="media-heading">
                                 <a class="post-title" th:href="@{/post/{postId}(postId=${post.id})}" th:text="${post.title}">title</a>
 
-								<span class="isEnd"  >
+								<span class="isEnd" th:if="${post.isEnd == 1}"  th:text="ok">
 <!--								post数据里面没有isEnd-->
-								<font  th:text="${post.isEnd == 0} ? '' : '已完成'" color="red"/>
+								<!--<font  th:text="${post.isEnd == 0} ? '' : '已完成'" color="red"/>-->
 								</span>
                             </div>
                             <a class="post-tag"
