@@ -1,5 +1,5 @@
 inline {
-    display: inline;
+	display:inline;
 }
 
 body {
@@ -7,32 +7,18 @@ body {
     /* background-color: #e7e7e7; */
 }
 
-.body,
-button,
-input,
-select,
-textarea，h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a {
+.body, button, input, select, textarea，h1 ,h2, h3, h4, h5, h6, a { 
     font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
+h1, h2, h3, h4, h5 {
     line-height: 1.2857em;
-    margin: calc(2rem - 0.14285em) 0em 1rem;
+    margin: calc(2rem - 0.14285em ) 0em 1rem;
     font-weight: bold;
     padding: 0em;
 }
 
-.post-content {
+.post-content{
     font-size: 14px;
     line-height: 1.5em;
     margin: 0em 0em 1em;
@@ -47,7 +33,7 @@ a:visited {
 }
 
 a.post-title {
-    font-size: 16px;
+	font-size: 16px;
     line-height: 130%;
     word-wrap: break-word;
     hyphens: auto;
@@ -90,42 +76,36 @@ a.post-user {
 }
 
 .panel-bg {
-    background-color: #e1e1e1;
+	background-color: #e1e1e1;
 }
 
-.side-borderless {
+.side-borderless { 
     border-left: 0 none;
-    border-right: 0 none;
-    border-bottom: 0 none;
+    border-right: 0 none; 
+    border-bottom: 0 none; 
 }
-
 
 /* set last child bottom border solid */
-
 li.last-border:last-child {
-    border-bottom: 1px solid #ddd;
+ 	border-bottom: 1px solid #ddd;
 }
 
-
 /* set profile list first child top border solid */
-
 li.profile-list.last-border:first-child {
-    border-top: 0px;
+    border-top: 0px; 
 }
 
 .list-custom-corner .list-group-item:first-child {
-    border-top-right-radius: 0px;
-    border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
 }
 
 .list-custom-corner .list-group-item:last-child {
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
-
 /* date range picker */
-
 .selectbox {
     background: #fff;
     color: #1d3b4a;
@@ -135,8 +115,7 @@ li.profile-list.last-border:first-child {
     border-width: 0 1px 4px;
 }
 
-.linkbox,
-.selectbox {
+.linkbox, .selectbox {
     border: 1px solid #ddd;
 }
 
@@ -151,27 +130,24 @@ li.profile-list.last-border:first-child {
 }
 
 .quick-post-button {
-    color: #3e6d8e;
-    width: 100%;
-    height: 50px;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 35px;
-    font-size: 16px;
+	color: #3e6d8e;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 35px;
+	font-size:16px;
 }
 
-
 /* 已完成状态 */
-
 .complete {
     color: grey;
     /* background-color: #c9e9ff; */
-    background-image: url(../img/complete.png);
+    background-image: url(./complete.png);
     background-repeat: no-repeat;
     background-position: right top;
     background-size: 59px;
 }
-
 .complete .media .media-body a {
     color: #cac7c8;
 }
@@ -185,5 +161,3 @@ li.profile-list.last-border:first-child {
     filter: alpha(opacity=40);
     /* 针对 IE8 以及更早的版本 */
 }
-
-.
