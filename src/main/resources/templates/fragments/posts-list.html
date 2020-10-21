@@ -30,11 +30,8 @@
 
                             <div class="media-heading">
                                 <a class="post-title" th:href="@{/post/{postId}(postId=${post.id})}" th:text="${post.title}">title</a>
+								<span class="isEnd" th:if="${post.isEnd == 1}"  th:text="ok"></span>
 
-								<span class="isEnd" th:if="${post.isEnd == 1}"  th:text="ok">
-<!--								post数据里面没有isEnd-->
-								<!--<font  th:text="${post.isEnd == 0} ? '' : '已完成'" color="red"/>-->
-								</span>
                             </div>
                             <a class="post-tag"
                                     th:href="@{/category/{categoryName}(categoryName=${post.category.name})}"
@@ -44,7 +41,7 @@
                                     th:text="${post.user.username}"></a>
                             <span class="post-date" th:text="${'发布于 ' + post.dateFormat()}"></span>
                         </div>
-                        <div class="media-right media-middle">
+                        <div class="media-right media-middle" >
                             <div th:if="${post.commentCount > 0}" th:text="${post.commentCount}" class="badge"></div>
                         </div>
                     </div>
