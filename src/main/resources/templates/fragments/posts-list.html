@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:>
 <body>
 	<div class="panel panel-default" th:fragment="posts">
 	
@@ -19,7 +19,8 @@
 		<!-- posts list -->
 		<div id="post-list">
             <ul class="list-group list-custom-corner">
-                <li class="list-group-item side-borderless last-border" th:each="post:${posts}">
+
+                <li class="list-group-item side-borderless last-border" th:each="post:${posts}"  >
                     <div class="media">
                         <div class="media-left media-middle">
 		                    <a th:href="@{/user/{userId}(userId=${post.user.id})}">
@@ -31,10 +32,8 @@
                             <div class="media-heading">
                                 <a class="post-title" th:href="@{/post/{postId}(postId=${post.id})}" th:text="${post.title}">title</a>
 
-								<span class="isEnd" th:if="${post.isEnd == 1}"  th:text="ok">
-<!--								post数据里面没有isEnd-->
-								<!--<font  th:text="${post.isEnd == 0} ? '' : '已完成'" color="red"/>-->
-								</span>
+								<span class="isEnd" th:if="${post.isEnd == 1}"></span>
+
                             </div>
                             <a class="post-tag"
                                     th:href="@{/category/{categoryName}(categoryName=${post.category.name})}"
@@ -44,8 +43,8 @@
                                     th:text="${post.user.username}"></a>
                             <span class="post-date" th:text="${'发布于 ' + post.dateFormat()}"></span>
                         </div>
-                        <div class="media-right media-middle">
-                            <div th:if="${post.commentCount > 0}" th:text="${post.commentCount}" class="badge"></div>
+                        <div class="media-right media-middle" th:if="${post.isEnd == 0}">
+                            <div th:if="${post.commentCount > 0 }" th:text="${post.commentCount}" class="badge"></div>
                         </div>
                     </div>
                 </li>
