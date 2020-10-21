@@ -27,9 +27,9 @@ public class EmailService {
 	public void sendEmail(MimeMessage email) {
 		try {
 			mailSender.send(email);
-			System.out.println("简单邮件发送成功！");
+			System.out.println("邮件发送成功！");
 		} catch (Exception e) {
-			System.out.println("发送简单邮件时发生异常！"+e);
+			System.out.println("发送邮件时发生异常！"+e);
 		}
 
 	}
