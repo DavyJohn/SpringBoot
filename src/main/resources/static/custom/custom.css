@@ -168,7 +168,7 @@ li.profile-list.last-border:first-child {
     /* background-color: #c9e9ff; */
     background-image: url(complete.png);
     background-repeat: no-repeat;
-    background-position: right top;
+    background-position: 99% center;
     background-size: 59px;
 }
 
