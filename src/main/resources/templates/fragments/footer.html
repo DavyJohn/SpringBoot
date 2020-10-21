@@ -7,9 +7,12 @@
 				<small>© 2020 jdevcn.com</small>
 			</p>
 		</div>
+		<script>
+			$(document).ready(function() {
+				$("span.isEnd").parents("li.list-group-item").addClass("complete")
+			})
+		</script>
 	</footer>
 </body>
-<script>
-	$("span.isEnd").parents("div.media").addClass("complete")
-</script>
+
 </html>
