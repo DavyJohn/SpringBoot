@@ -64,7 +64,7 @@
         FROM T_POST p
         LEFT JOIN T_USER u ON p.user_id = u.id
         LEFT JOIN T_CATEGORY c ON p.category_id = c.id
-        ORDER BY p.date_created DESC
+        ORDER BY  p.isEnd , p.date_created DESC
     </select>
     
     <select id="findPostsByCategory" parameterType="String" resultMap="PostResultMap">
